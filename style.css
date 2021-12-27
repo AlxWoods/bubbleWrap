@@ -1,0 +1,55 @@
+:root {
+    --size: 16; /*size refers to number of squares on the board*/
+
+    --pixels: 192px;
+
+    --defaultBoxHieght: calc(var(--pixels) / var(--size));
+    --boxMargin: calc(var(--defaultBoxHieght) / 10);
+
+    /*should be 12*/
+    --box: calc(var(--defaultBoxHieght) + var(--boxMargin) * 2); 
+}
+
+h2 {
+    padding-top: 0;
+}
+
+.box {
+    background-color: rgb(135, 230, 243);
+    height: var(--defaultBoxHieght);
+    width: var(--defaultBoxHieght);
+    flex-direction: row;
+    margin: var(--boxMargin);
+    border-radius: calc(var(--defaultBoxHieght) / 2);
+}
+
+.changedBox {
+    background-color: rgb(209, 244, 255);
+    height: var(--defaultBoxHieght);
+    width: var(--defaultBoxHieght);
+    flex-direction: row;
+    margin: var(--boxMargin);
+    border-radius: calc(var(--defaultBoxHieght) / 2);
+}
+
+
+
+.container {
+    background-color: rgb(201, 240, 252);
+    border:1px solid rgb(23, 1, 63);
+    height: calc(var(--box) * var(--size));
+    width: calc(var(--box) * var(--size));
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.outerContainer {
+    background-color: rgb(197, 248, 255);
+    max-width: calc(var(--pixels) * 1.4);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
