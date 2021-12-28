@@ -13,7 +13,6 @@ function makeBoard(numberOfBoxes){
       container.appendChild(box);
    }
    divs = document.querySelectorAll('.box');
-   console.log(divs);
 }
 makeBoard(16);
 
@@ -23,14 +22,14 @@ function change(){
    removeAllChildNodes(container);
    makeBoard(result);
    divs = document.querySelectorAll('.box');
-   console.log(divs);
+   //console.table(divs);
 
+   /**   EventListeners are here becuase the elements for the 
+    *    original eventListenerselements after removed clearing */
    divs.forEach(div => div.addEventListener('click',clickEtch));
-
    document.getElementById('clear').addEventListener('click', function() {
       clear();
    });
-   
    document.getElementById('change').addEventListener('click', function() {
       change();
    });
@@ -38,19 +37,18 @@ function change(){
 
 
 function clickEtch(e) {
-   console.log(this.id);
+   if (this.className != 'changedBox'){
+      audio.currentTime = 0;
+      audio.play();
+   }
    this.className = 'changedBox';
-   audio.currentTime = 0;
-   audio.play();
 }
 
 function clear(e){
-   console.log('Clear!!');
    var boxes = document.querySelectorAll('.changedBox');
    for (var i = 0; i < boxes.length; i++) {
       boxes[i].className = 'box';
    }
-
 }
 
 function removeAllChildNodes(parent) {
@@ -60,13 +58,10 @@ function removeAllChildNodes(parent) {
 }
 
 
-
 divs.forEach(div => div.addEventListener('click',clickEtch));
-
 document.getElementById('clear').addEventListener('click', function() {
    clear();
 });
-
 document.getElementById('change').addEventListener('click', function() {
    change();
 });

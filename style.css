@@ -1,21 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
 :root {
     --size: 16; /*size refers to number of squares on the board*/
-
-    --pixels: 192px;
-
+    --pixels: 192px; /*size of the board*/
     --defaultBoxHieght: calc(var(--pixels) / var(--size));
     --boxMargin: calc(var(--defaultBoxHieght) / 10);
-
-    /*should be 12*/
     --box: calc(var(--defaultBoxHieght) + var(--boxMargin) * 2); 
+
+    --boxColor: rgb(135, 230, 243);
+    --darkBlue: rgb(17, 0, 92);
+    --innerLightBlue: rgb(209, 244, 255);
+    --containerBlue: rgb(201, 240, 252);
+    --outerContainerBlue: rgb(197, 248, 255);
+}
+
+body {
+    font-family: "Montserrat",sans-serif;
+    width: 100%;
+    height: 100%;
+    background-color: var(--outerContainerBlue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 h2 {
     padding-top: 0;
+    color: var(--darkBlue);
+    font-size: 1.2rem;
 }
 
 .box {
-    background-color: rgb(135, 230, 243);
+    background-color: var(--boxColor);
     height: var(--defaultBoxHieght);
     width: var(--defaultBoxHieght);
     flex-direction: row;
@@ -24,7 +40,7 @@ h2 {
 }
 
 .changedBox {
-    background-color: rgb(209, 244, 255);
+    background-color: var(--innerLightBlue);
     height: var(--defaultBoxHieght);
     width: var(--defaultBoxHieght);
     flex-direction: row;
@@ -35,8 +51,8 @@ h2 {
 
 
 .container {
-    background-color: rgb(201, 240, 252);
-    border:1px solid rgb(23, 1, 63);
+    background-color: var(--containerBlue);
+    border:1px solid var(--darkBlue);
     height: calc(var(--box) * var(--size));
     width: calc(var(--box) * var(--size));
     display: flex;
@@ -45,11 +61,27 @@ h2 {
 }
 
 .outerContainer {
-    background-color: rgb(197, 248, 255);
+    background-color: var(--outerContainerBlue);
     max-width: calc(var(--pixels) * 1.4);
-    padding: 20px;
+    padding: 20px 20px 0 20px;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+}
+
+button {
+    padding: 9px 25px;
+    background-color: var(--innerLightBlue);
+    color: var(--darkBlue);
+    border: 1px solid ;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    margin: 10px 0px;
+    border: 1px solid var(--darkBlue);
+}
+
+button:hover    {
+    background-color: var(--boxColor);
 }
